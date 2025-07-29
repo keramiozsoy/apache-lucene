@@ -3,6 +3,7 @@ package com.example.apache_lucene.service;
 import org.apache.lucene.analysis.*;
 import org.apache.lucene.analysis.core.KeywordTokenizer;
 import org.apache.lucene.analysis.pattern.PatternReplaceCharFilter;
+import org.apache.lucene.analysis.ru.RussianAnalyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.util.BytesRef;
@@ -71,4 +72,9 @@ public class LuceneService {
         return builder.toString();
     }
 
+
+    public String russianDoLanguageNormalize(String text) {
+        Analyzer analyzer = new RussianAnalyzer();
+        return convertWithTokenStream(analyzer, text);
+    }
 }

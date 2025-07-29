@@ -38,5 +38,11 @@ public class LuceneController {
         return luceneService.deletePunctuation(lowercase);
     }
 
+    @GetMapping("/4/russian/doLanguageNormalize")
+    public String russianDoLanguageNormalize(
+            @RequestParam(defaultValue = "-Привет'.") String text) {
+        return luceneService.russianDoLanguageNormalize(text);
+    }
+
 
 }
